@@ -6,9 +6,8 @@ import { getBasketTotal } from "./reducer";
 import { useHistory } from "react-router-dom";
 
 function Subtotal() {
-
   const history = useHistory();
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [{ basket }, dispatch] = useStateValue();
 
   return (
@@ -17,7 +16,6 @@ function Subtotal() {
         renderText={(value) => (
           <>
             <p>
-              
               Subtotal ({basket.length} items): <strong>{value}</strong>
             </p>
             <small className="subtotal_gift">
@@ -26,13 +24,16 @@ function Subtotal() {
           </>
         )}
         decimalScale={2}
-        value={getBasketTotal(basket)} 
+        value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}
       />
-
-      <button>Proceed to Checkout</button>
+      {/* since user will be logged in, use history instead of link */}
+      <button onClick={(e) => history.push("/payment")}>
+        {" "}
+        Proceed to Checkout
+      </button>
     </div>
   );
 }
