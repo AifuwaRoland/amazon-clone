@@ -1,8 +1,10 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
+// eslint-disable-next-line
 const stripe = require("stripe")(
-  "sk_test_51I8kMrEyutNcTOo4DFInMHJupAcOQY6R4dhF2fMSj3IpZtE82uGLzyolvd7zwi28HoA5AQcd4Dsm6qwxoEHz7s5H00b4VLFZdi"
+    // eslint-disable-next-line
+    "sk_test_51I8kMrEyutNcTOo4DFInMHJupAcOQY6R4dhF2fMSj3IpZtE82uGLzyolvd7zwi28HoA5AQcd4Dsm6qwxoEHz7s5H00b4VLFZdi",
 );
 
 // API
@@ -11,7 +13,7 @@ const stripe = require("stripe")(
 const app = express();
 
 // - Middlewares
-app.use(cors({ origin: true }));
+app.use(cors({origin: true}));
 app.use(express.json());
 
 // - API routes
@@ -37,4 +39,4 @@ app.post("/payments/create", async (request, response) => {
 exports.api = functions.https.onRequest(app);
 
 // Example endpoint
-//http://localhost:5001/clone-d7b25/us-central1/api
+// http://localhost:5001/clone-d7b25/us-central1/api
